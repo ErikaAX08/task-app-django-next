@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class TaskModel(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -13,4 +14,3 @@ class TaskModel(models.Model):
 
     def __str__(self):
         return f"{self.title} - {'Completed' if self.completed else 'Pending'}"
-

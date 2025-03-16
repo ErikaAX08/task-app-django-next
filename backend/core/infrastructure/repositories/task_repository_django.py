@@ -1,7 +1,8 @@
 from typing import List, Optional
 from ...domain.entities.task_entity import Task
 from ...domain.repositories.task_repository_interface import TaskRepositoryInterface
-from ...models import TaskModel
+from core.infrastructure.models import TaskModel
+
 
 class TaskRepositoryDjango(TaskRepositoryInterface):
     def get_all_tasks(self) -> List[Task]:
@@ -58,4 +59,3 @@ class TaskRepositoryDjango(TaskRepositoryInterface):
             created_at=task_model.created_at,
             updated_at=task_model.updated_at
         )
-
