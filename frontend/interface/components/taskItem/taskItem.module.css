@@ -1,0 +1,57 @@
+.card {
+    background-color: var(--secondary-background);
+    padding: var(--l-spacing);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: var(--l-spacing);
+    align-items: start;
+    cursor: pointer;
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--accent-background);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.checkbox:checked {
+    background-color: var(--accent-background);
+    border-color: var(--accent-background);
+    position: relative;
+}
+
+.checkbox:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 3px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-spacing);
+}
+
+.title {
+    color: var(--accent-text);
+    margin: 0;
+}
+
+.description {
+    color: var(--primary-text);
+    margin: 0;
+}
