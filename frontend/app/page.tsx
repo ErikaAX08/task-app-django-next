@@ -4,9 +4,10 @@ import styles from "./page.module.css";
 import {TaskItem} from "@/interface/components/taskItem/taskItem";
 import {useTasks} from "@/interface/hooks/useTasks";
 import {useState} from "react";
+import {Task} from "@/domain/entities/task_entity";
 
 export default function Home() {
-    const {tasks, loading, addTask} = useTasks()
+    const {tasks, loading, addTask, updateTask} = useTasks()
     const [taskName, setTaskName] = useState<string>("");
     const [taskDescription, setTaskDescription] = useState<string>("");
 
@@ -22,6 +23,12 @@ export default function Home() {
         )
     }
 
+    const onCompletedHandler = (task: Task) => {
+        const updatedTask = {...task, completed: !task.completed};
+        updateTask(updatedTask).then(() => {
+            console.log("Tarea actualizada con éxito");
+        });
+    }
     return (
         <div className={styles.page}>
             <main className={styles.main}>
@@ -39,7 +46,7 @@ export default function Home() {
                     {
                         tasks.map((task) =>
                             <TaskItem key={task.id} title={task.title} description={task.description}
-                                      completed={task.completed}/>
+                                      completed={task.completed} onComplete={() => onCompletedHandler(task)}/>
                         )
                     }
                 </div>
