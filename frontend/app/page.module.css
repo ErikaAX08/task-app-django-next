@@ -7,7 +7,7 @@
 .main {
     display: flex;
     flex-direction: column;
-    gap: var(--l-spacing);
+    gap: var(--xl-spacing);
     min-width: 600px;
     align-content: center;
     padding: var(--xl-spacing);
@@ -17,6 +17,7 @@
     color: var(--accent-text);
     text-align: center;
     font-size: 42px;
+    margin: 0;
 }
 
 .form {
