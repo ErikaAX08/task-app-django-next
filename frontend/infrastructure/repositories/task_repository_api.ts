@@ -25,7 +25,7 @@ export class TaskRepositoryAPI implements TaskRepositoryInterface {
     }
 
     async updateTask(task: Task): Promise<Task> {
-        const response = await fetch(`${this.baseUrl}/${task.id}/`, {
+        const response = await fetch(`${this.baseUrl}${task.id}/`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(task),
